@@ -1,19 +1,20 @@
-import logo from './assets/ss-logo.png';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Login from "./Login";
+import Links from "./Links"
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="content-container">
-          <img src={logo} className="App-logo" alt="logo" />
-          <div className="button-container">
-            <button className="btn">Login</button>
-            <button className="btn">Register</button>
-          </div>
-        </div>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/links" element={<Links />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
