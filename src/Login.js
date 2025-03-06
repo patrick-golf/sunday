@@ -14,7 +14,7 @@ function Login() {
               <input type="password" placeholder="Password" className="input-field" required />
               <button type="submit" className="btn">Login</button>
             </form>
-            <a href="/register">Register</a>
+            <a className="register-link" href="/register">Register</a>
           </div>
         </div>
       </header>
