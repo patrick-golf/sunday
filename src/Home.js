@@ -11,7 +11,9 @@ function Home() {
             <Link to="/login">
                 <button className="btn">Login</button>
             </Link>
-            <button className="btn">Register</button>
+            <Link to="/register">
+                <button className="btn">Register</button>
+            </Link>
           </div>
         </div>
       </header>

@@ -1,40 +1,41 @@
 import { useState } from "react";
 import axios from "axios";
 import logo from "./assets/ss-logo.png";
-// import { Link } from "react-router-dom"; // Uncomment if you're using React Router for navigation
-import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./App.css";
 
-function Login() {
+function Register() {
   // States to store form data
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");  // For showing error/success messages
   const [loading, setLoading] = useState(false); // For loading state
-  const navigate = useNavigate();
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (password !== confirmPassword) {
+      setMessage("Passwords do not match");
+      return;
+    }
+
     // Show loading spinner or disable button while waiting for response
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5001/api/auth/login", {
+      await axios.post("http://localhost:5001/api/auth/register", {
         email,
         password,
       });
 
-      // On successful login, store token in localStorage
-      localStorage.setItem("token", response.data.token);
-      setMessage("Login successful!");
-      // Redirect user to another page (e.g., dashboard)
-      // window.location.href = '/dashboard'; // Uncomment if you're using a redirect
-      navigate("/links");
+      setMessage("Registration successful! You can now log in.");
+      // Redirect user to login page
+      // window.location.href = "/login"; // Uncomment if you're using a redirect
 
     } catch (error) {
-      setMessage(error.response?.data?.message || "Login failed. Please try again.");
+      setMessage(error.response?.data?.message || "Registration failed. Please try again.");
     } finally {
       setLoading(false); // Hide loading spinner or enable button
     }
@@ -63,12 +64,20 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                className="input-field"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
               <button type="submit" className="btn" disabled={loading}>
-                {loading ? "Logging in..." : "Login"}
+                {loading ? "Registering..." : "Register"}
               </button>
             </form>
             {message && <p>{message}</p>}  {/* Display message */}
-            <a className="register-link" href="/register">Register</a>
+            <a className="register-link" href="/login">Already have an account? Log in</a>
           </div>
         </div>
       </header>
@@ -76,4 +85,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
