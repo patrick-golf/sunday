@@ -21,7 +21,7 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5001/api/auth/login", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
         email,
         password,
       });
@@ -67,8 +67,9 @@ function Login() {
                 {loading ? "Logging in..." : "Login"}
               </button>
             </form>
-            {message && <p>{message}</p>}  {/* Display message */}
+            {message && <p>{message}</p>}
             <a className="register-link" href="/register">Register</a>
+            <a className="register-link" href="/forgot-password">Forgot Password?</a>
           </div>
         </div>
       </header>
