@@ -3,7 +3,7 @@ import trackman from "./assets/trackman.png"
 import mindbody from "./assets/mindbody.png"
 import puttview from "./assets/puttview.png"
 import ghin from "./assets/ghin.png"
-import logo from './assets/ss-logo.png'
+// import logo from './assets/ss-logo.png'
 import tpi from "./assets/tpi.png"
 import bridge from "./assets/bridge.png"
 import "./App.css";
@@ -12,7 +12,6 @@ function Links() {
     return (
         <div className="App">
             <div className="App-header">
-                <img src={logo} className="home-button" alt="home button" />
                 <div className="links-container">
                     <a href="https://www.trackman.com/login" target="_blank" rel="noopener noreferrer">
                         <div className="image-wrapper">

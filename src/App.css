@@ -1,4 +1,19 @@
-/* FONT SECTION */
+/* FONT DECLARATIONS */
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('./assets/fonts/SuisseIntl-Regular.ttf') format('truetype'),
+       url('./assets/fonts/SuisseIntl-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('./assets/fonts/SuisseIntl-RegularItalic.ttf') format('truetype'),
+       url('./assets/fonts/SuisseIntl-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
 
 @font-face {
   font-family: 'SuisseIntl';
@@ -34,17 +49,17 @@
 
 @font-face {
   font-family: 'SuisseIntl';
-  src: url('./assets/fonts/SuisseIntl-Regular.ttf') format('truetype'),
-       url('./assets/fonts/SuisseIntl-Regular.otf') format('opentype');
-  font-weight: 400;
+  src: url('./assets/fonts/SuisseIntl-UltraLight.ttf') format('truetype'),
+       url('./assets/fonts/SuisseIntl-UltraLight.otf') format('opentype');
+  font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SuisseIntl';
-  src: url('./assets/fonts/SuisseIntl-RegularItalic.ttf') format('truetype'),
-       url('./assets/fonts/SuisseIntl-RegularItalic.otf') format('opentype');
-  font-weight: 400;
+  src: url('./assets/fonts/SuisseIntl-UltraLightItalic.ttf') format('truetype'),
+       url('./assets/fonts/SuisseIntl-UltraLightItalic.otf') format('opentype');
+  font-weight: 200;
   font-style: italic;
 }
 
@@ -64,34 +79,35 @@
   font-style: italic;
 }
 
-@font-face {
-  font-family: 'SuisseIntl';
-  src: url('./assets/fonts/SuisseIntl-UltraLight.ttf') format('truetype'),
-       url('./assets/fonts/SuisseIntl-UltraLight.otf') format('opentype');
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SuisseIntl';
-  src: url('./assets/fonts/SuisseIntl-UltraLightItalic.ttf') format('truetype'),
-       url('./assets/fonts/SuisseIntl-UltraLightItalic.otf') format('opentype');
-  font-weight: 200;
-  font-style: italic;
-}
-
-/* FONT SECTION END*/
-
+/* BASE STYLES */
 .App {
   text-align: center;
 }
 
+.App-logo {
+  height: 40vmin;
+  max-width: 100%;
+  pointer-events: none;
+}
+
 .body {
   font-family: 'SuisseIntl', sans-serif;
-  letter-spacing: -.0225rem;
+  letter-spacing: -0.0225rem;
   line-height: 1.31;
 }
 
+.App-header {
+  background-color: #e1dfd3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(12px + 2vmin);
+  color: #2b2a1d;
+}
+
+/* CONTAINER STYLES */
 .content-container {
   display: flex;
   flex-direction: column;
@@ -109,13 +125,20 @@
   position: relative;
 }
 
-.home-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  height: 50px;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 5vh;
+  justify-content: space-evenly;
 }
 
+/* IMAGE STYLES */
 .image-wrapper {
   display: inline-block;
   position: relative;
@@ -123,6 +146,11 @@
   border-radius: 5px;
   overflow: hidden;
   transition: transform 0.2s ease-in-out, border-color 0.3s ease;
+}
+
+.image-wrapper:hover {
+  transform: scale(0.98);
+  border-color: #809286;
 }
 
 .links-image {
@@ -139,11 +167,6 @@
   filter: blur(10px);
 }
 
-.image-wrapper:hover {
-  transform: scale(0.98);
-  border-color: #809286;
-}
-
 .hover-text {
   position: absolute;
   top: 50%;
@@ -158,32 +181,17 @@
   z-index: 2;
   white-space: nowrap;
   text-shadow: 
-        -1px -1px 0 #2b2a1d,  
-         1px -1px 0 #2b2a1d,  
-        -1px  1px 0 #2b2a1d,  
-         1px  1px 0 #2b2a1d;
+    -1px -1px 0 #2b2a1d,  
+    1px -1px 0 #2b2a1d,  
+    -1px 1px 0 #2b2a1d,  
+    1px 1px 0 #2b2a1d;
 }
 
 .image-wrapper:hover .hover-text {
   opacity: 1;
 }
 
-.App-logo {
-  height: auto;
-  max-width: 100%;
-}
-
-.App-header {
-  background-color: #e1dfd3;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(12px + 2vmin);
-  color: #2b2a1d;
-}
-
+/* BUTTON STYLES */
 .button-container {
   margin-top: 20px;
   display: flex;
@@ -202,54 +210,16 @@
   border-radius: 3px;
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
-}
-
-.btn:first-child {
   background-color: #2b2a1d;
   color: white;
 }
 
-.btn:first-child:hover {
+.btn:hover {
   background-color: #e1dfd3;
   color: #2b2a1d;
 }
 
-.btn:last-child {
-  background-color: #2b2a1d;
-  color: white;
-}
-
-.btn:last-child:hover {
-  background-color: #e1dfd3;
-  color: #2b2a1d;
-}
-
-.register-link {
-  display: block;
-  margin-top: 15px;
-  font-family: 'SuisseIntl', sans-serif;
-  color: #2b2a1d;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.register-link:hover {
-  text-decoration: underline;
-}
-
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
-  max-width: 400px;
-  padding: 20px;
-  border-radius: 5px;
-  box-sizing: border-box;
-  margin-bottom: 5vh;
-  justify-content: space-evenly;
-}
-
+/* FORM STYLES */
 .input-field {
   width: 100%;
   padding: 10px;
@@ -269,4 +239,87 @@
 
 .input-field:last-of-type {
   margin-bottom: 20px;
+}
+
+/* LINK STYLES */
+.register-link {
+  display: block;
+  margin-top: 15px;
+  font-family: 'SuisseIntl', sans-serif;
+  color: #2b2a1d;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+.home-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 50px;
+}
+
+/* NAVBAR STYLES */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #2b2a1d;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar-link {
+  color: #e1dfd3;
+  text-decoration: none;
+  font-family: 'SuisseIntl', sans-serif;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-link:hover {
+  background-color: #e1dfd3;
+  color: #2b2a1d;
+}
+
+/* Adjust main content to account for fixed navbar */
+.links-container {
+  margin-top: 80px; /* Add margin to account for fixed navbar */
 }

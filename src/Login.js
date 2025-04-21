@@ -3,6 +3,7 @@ import axios from "axios";
 import logo from "./assets/ss-logo.png";
 // import { Link } from "react-router-dom"; // Uncomment if you're using React Router for navigation
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./context/AuthContext";
 import "./App.css";
 
 function Login() {
@@ -12,6 +13,7 @@ function Login() {
   const [message, setMessage] = useState("");  // For showing error/success messages
   const [loading, setLoading] = useState(false); // For loading state
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -26,12 +28,11 @@ function Login() {
         password,
       });
 
-      // On successful login, store token in localStorage
-      localStorage.setItem("token", response.data.token);
+      login(response.data.token);
       setMessage("Login successful!");
       // Redirect user to another page (e.g., dashboard)
       // window.location.href = '/dashboard'; // Uncomment if you're using a redirect
-      navigate("/links");
+      navigate("/links"); // On Login, navigate to links page
 
     } catch (error) {
       setMessage(error.response?.data?.message || "Login failed. Please try again.");
