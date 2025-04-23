@@ -264,11 +264,11 @@
 
 /* NAVBAR STYLES */
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 90px;
   background-color: #2b2a1d;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -288,11 +288,25 @@
   display: flex;
   align-items: center;
   height: 100%;
+  gap: 1.44rem;
+  text-decoration: none;
+  color: var(--primary);
+  letter-spacing: -0.045rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .navbar-logo-img {
-  height: 40px;
+  height: 75px;
   width: auto;
+}
+
+.navbar-title {
+  color: var(--primary);
+  font-family: 'SuisseIntl', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.045rem;
 }
 
 .navbar-links {
@@ -305,21 +319,86 @@
   color: #e1dfd3;
   text-decoration: none;
   font-family: 'SuisseIntl', sans-serif;
-  font-size: 16px;
-  padding: 8px 12px;
-  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 16px 24px;
+  border-radius: 30px;
   transition: background-color 0.3s ease, color 0.3s ease;
   background: none;
-  border: none;
+  border: 1px solid rgba(225, 223, 211, 0.45);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .navbar-link:hover {
+  border-color: rgba(225, 223, 211, 0.45);
+}
+
+/* Navigation Dots */
+.nav-dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+@keyframes dotMove {
+  0% {
+    transform: translate3d(0rem, 0px, 0px) scale3d(1, 1, 1);
+  }
+  25% {
+    transform: translate3d(-0.1rem, 0px, 0px) scale3d(1, 1, 1);
+  }
+  75% {
+    transform: translate3d(1.5rem, 0px, 0px) scale3d(0.65, 0.65, 1);
+  }
+  100% {
+    transform: translate3d(1.4rem, 0px, 0px) scale3d(0.65, 0.65, 1);
+  }
+}
+
+.nav-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+}
+
+.nav-dot.solid {
   background-color: #e1dfd3;
-  color: #2b2a1d;
+  transform: translate3d(0rem, 0px, 0px) scale3d(1, 1, 1);
+  transform-style: preserve-3d;
+}
+
+.navbar-link:hover .nav-dot.solid {
+  animation: dotMove 1s ease forwards;
+  transform-style: preserve-3d;
+}
+
+.nav-dot.outlined {
+  width: 17px;
+  height: 17px;
+  border: 1px solid #e1dfd3;
+  background: none;
 }
 
 /* Adjust main content to account for fixed navbar */
 .links-container {
-  margin-top: 80px; /* Add margin to account for fixed navbar */
+  margin-top: 120px; /* Add margin to account for fixed navbar */
+}
+
+:root {
+  --primary: #e1dfd3;
+  --neutral-800: #353326;
+  --neutral-700: #2b2a1e;
+  --secondary: #809286;
+  --neutral-200: #eae9e1;
+  --neutral-600: #282828;
+  --white: white;
+  --neutral-400: #80807f;
+  --neutral-300: #d8d8d8;
+  --black: black;
+  --neutral-500: #393939;
+  --neutral-900: #302e22;
 }
