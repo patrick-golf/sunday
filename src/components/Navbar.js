@@ -17,10 +17,15 @@ function Navbar() {
           <img src={logo} alt="logo" className="navbar-logo-img" />
           <span className="navbar-title">Sunday Swing</span>
         </Link>
-        <button onClick={handleLogout} className="navbar-link">
-          <NavDots />
-          Logout
-        </button>
+        <div className="navbar-center">
+          {/* Future navigation links will go here */}
+        </div>
+        <div className="navbar-right">
+          <button onClick={handleLogout} className="navbar-link">
+            <NavDots />
+            Logout
+          </button>
+        </div>
       </div>
     </nav>
   );
