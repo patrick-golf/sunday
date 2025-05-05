@@ -47,6 +47,7 @@ function Register() {
         <div className="content-container">
           <img src={logo} className="App-logo" alt="logo" />
           <div className="login-container">
+            <h1>Please Use the Email Address tied to your Sunday Swing Account</h1>
             <form onSubmit={handleSubmit}>
               <input
                 type="email"

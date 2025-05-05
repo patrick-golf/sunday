@@ -176,6 +176,13 @@
   justify-content: space-evenly;
 }
 
+.login-container h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.045rem;
+  margin-bottom: 20px;
+}
+
 /* IMAGE STYLES */
 .image-wrapper {
   display: inline-block;
@@ -237,6 +244,7 @@
   flex-direction: column;
   width: 80%;
   max-width: 400px;
+  margin-bottom: 40px;
 }
 
 .btn {
@@ -244,6 +252,8 @@
   padding: 10px 20px;
   font-size: 18px;
   font-family: 'SuisseIntl', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.045rem;
   border: 2px solid #2b2a1d;
   border-radius: 3px;
   cursor: pointer;
@@ -286,7 +296,9 @@
   font-family: 'SuisseIntl', sans-serif;
   color: #2b2a1d;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.045rem;
 }
 
 .register-link:hover {
